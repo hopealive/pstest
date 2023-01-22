@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>P Tests</title>
-    </head>
-    <body>
-
-    </body>
-</html>
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Start tests') }}</div>
+                <div class="card-body">
+                    {{-- TODO: implement tests --}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
