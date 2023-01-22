@@ -1,5 +1,3 @@
-{{-- TODO: implement test example --}}
-
 @extends('layouts.app')
 
 @section('content')
@@ -16,6 +14,10 @@
                 <p>Questions</p>
             </div>
             <div class="social-description">
+                <h2>15</h2>
+                <p>Minutes</p>
+            </div>
+            <div class="social-description">
                 <h2>95%</h2>
                 <p>Result</p>
             </div>
@@ -25,33 +27,33 @@
 <div class="section">
     <div class="container">
         <form>
+            <?php for($j = 1; $j <= 10; ++$j): ?>
+
             <div class="section text-center">
                 <div class="form-row">
-                    <h3 class="title">Question 1</h3>
+                    <h3 class="title">Question
+                        <?= $j ?>
+                    </h3>
                     <h5 class="description">
                         Who is on duty today?
                     </h5>
+
+                    <?php for($i = 1; $i <= 6; ++$i): ?>
                     <div class="form-check form-check-radio">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="exampleRadios" checked> <span
-                                class="form-check-sign"></span>
-                            Vasya is duty today
-                        </label>
-                    </div>
-                    <?php for($i = 1; $i < 6; ++$i): ?>
-                    <div class="form-check form-check-radio">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="exampleRadios"> <span
-                                class="form-check-sign"></span>
+                            <input class="form-check-input" type="radio" name="question_<?= $j ?>" <?=$i==1 ? 'checked'
+                                : '' ?>>
+                            <span class="form-check-sign"></span>
                             Vasya
-                            <?= $i+1 ?> is duty today
+                            <?= $i ?> is duty today
                         </label>
                     </div>
                     <?php endfor; ?>
                 </div>
             </div>
+            <?php endfor; ?>
 
-            <div class="button-container">
+            <div class="button-container text-center">
                 <a href="#button" class="btn btn-primary btn-round btn-lg">Submit</a>
             </div>
         </form>

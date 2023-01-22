@@ -43,7 +43,7 @@
     <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
         <div class="container">
             <div class="dropdown button-dropdown">
-                <a href="#pablo" class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown">
+                <a href="#" class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown">
                     <span class="button-bar"></span>
                     <span class="button-bar"></span>
                     <span class="button-bar"></span>
@@ -60,9 +60,9 @@
                 </div>
             </div>
             <div class="navbar-translate">
-                <a class="navbar-brand" href="https://demos.creative-tim.com/now-ui-kit/index.html" rel="tooltip"
-                    title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
-                    Now Ui Kit
+                <a class="navbar-brand" href="/" rel="tooltip"
+                    title="Home" data-placement="bottom">
+                    Home
                 </a>
                 <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navigation" aria-controls="navigation-index" aria-expanded="false"
@@ -76,29 +76,22 @@
                 data-nav-image="/img/blurred-image-1.jpg">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Back to Kit</a>
+                        <a class="nav-link" href="/">Back to Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://github.com/creativetimofficial/now-ui-kit/issues">Have an
                             issue?</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom"
-                            href="https://twitter.com/CreativeTim" target="_blank">
-                            <i class="fab fa-twitter"></i>
-                            <p class="d-lg-none d-xl-none">Twitter</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom"
-                            href="https://www.facebook.com/CreativeTim" target="_blank">
+                        <a class="nav-link" rel="tooltip" title="Like me on Facebook" data-placement="bottom"
+                            href="https://www.facebook.com/yana.orlova.549" target="_blank">
                             <i class="fab fa-facebook-square"></i>
                             <p class="d-lg-none d-xl-none">Facebook</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom"
-                            href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
+                            href="https://www.instagram.com/ninn978" target="_blank">
                             <i class="fab fa-instagram"></i>
                             <p class="d-lg-none d-xl-none">Instagram</p>
                         </a>
@@ -116,18 +109,13 @@
                 <nav>
                     <ul>
                         <li>
-                            <a href="https://www.creative-tim.com">
-                                Creative Tim
+                            <a href="/">
+                                Home
                             </a>
                         </li>
                         <li>
-                            <a href="http://presentation.creative-tim.com">
-                                About Us
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://blog.creative-tim.com">
-                                Blog
+                            <a href="/tests">
+                                Start test
                             </a>
                         </li>
                     </ul>
@@ -136,9 +124,8 @@
                     &copy;
                     <script>
                         document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-                    </script>, Designed by
-                    <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
-                    <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+                    </script>
+                    &nbsp;Yanina Perevyshko
                 </div>
             </div>
         </footer>
