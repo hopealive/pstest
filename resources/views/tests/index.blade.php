@@ -50,7 +50,7 @@
                         <?= $question->description ?>
                     </h5>
 
-                    @foreach ($question->option as $option)
+                    @foreach ($question->option->sortBy('id') as $option)
                     <div class="form-check form-check-radio">
                         <label class="form-check-label">
                             <input class="form-check-input" type="radio" name="<?= 'question_' . $question->id ?>"
