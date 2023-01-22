@@ -25,4 +25,5 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('post/{slug}', [App\Http\Controllers\PostsController::class, 'show'])->name('post');
 Route::resource('tests', App\Http\Controllers\TestsController::class)->only(['index', 'store']);
