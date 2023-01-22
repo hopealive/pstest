@@ -26,35 +26,46 @@
 </div>
 <div class="section">
     <div class="container">
-        <form>
-            <?php for($j = 1; $j <= 10; ++$j): ?>
 
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
+        <form action="" method="POST">
+            {{ csrf_field() }}
+
+            @foreach ($questions as $question)
             <div class="section text-center">
                 <div class="form-row">
-                    <h3 class="title">Question
-                        <?= $j ?>
+                    <h3 class="title">
+                        <?= $question->title ?>
                     </h3>
                     <h5 class="description">
-                        Who is on duty today?
+                        <?= $question->description ?>
                     </h5>
 
-                    <?php for($i = 1; $i <= 6; ++$i): ?>
+                    @foreach ($question->option as $option)
                     <div class="form-check form-check-radio">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="question_<?= $j ?>" <?=$i==1 ? 'checked'
-                                : '' ?>>
+                            <input class="form-check-input" type="radio" name="question_<?= $question->id ?>"
+                                <?=($loop->first) ? 'checked' : '' ?>>
                             <span class="form-check-sign"></span>
-                            Vasya
-                            <?= $i ?> is duty today
+                            <?= $option->description ?>
                         </label>
                     </div>
-                    <?php endfor; ?>
+                    @endforeach
                 </div>
             </div>
-            <?php endfor; ?>
+            @endforeach
 
             <div class="button-container text-center">
-                <a href="#button" class="btn btn-primary btn-round btn-lg">Submit</a>
+                <input type="submit" class="btn btn-primary btn-round btn-lg" value="Submit">
             </div>
         </form>
     </div>

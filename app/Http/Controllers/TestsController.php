@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\TestFinishRequest;
+use App\Models\Question;
 
 class TestsController extends Controller
 {
@@ -13,6 +14,12 @@ class TestsController extends Controller
      */
     public function index()
     {
-        return view('tests/index');
+        return view('tests/index', ['questions' => Question::with('option')->get()]);
+    }
+
+    public function store(TestFinishRequest $request)
+    {
+        //TODO: implement
+        abort(403, 'Type not founded');
     }
 }

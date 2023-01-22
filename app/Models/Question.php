@@ -13,4 +13,9 @@ class Question extends Model
         'title',
         'description',
     ];
+
+    public function option()
+    {
+        return $this->hasMany(QuestionOption::class);
+    }
 }
