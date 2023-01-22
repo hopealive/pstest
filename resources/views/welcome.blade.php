@@ -22,6 +22,12 @@
     </div>
 </div>
 
+<div class="section text-center">
+    <a href="/tests" class="btn btn-primary btn-lg btn-round" type="button">
+        <i class="now-ui-icons ui-2_favourite-28"></i> Start test
+    </a>
+</div>
+
 <div class="section section-contact-us text-center">
     <div class="container">
         <h2 class="title">Contact with me?</h2>
