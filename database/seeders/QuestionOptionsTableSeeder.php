@@ -9,7 +9,7 @@ use TCG\Voyager\Models\Menu;
 use TCG\Voyager\Models\MenuItem;
 use TCG\Voyager\Models\Permission;
 
-class QuestionsTableSeeder extends Seeder
+class QuestionOptionsTableSeeder extends Seeder
 {
     /**
      * Auto generated seed file.
@@ -17,14 +17,14 @@ class QuestionsTableSeeder extends Seeder
     public function run()
     {
         //Data Type
-        $dataType = $this->dataType('slug', 'questions');
+        $dataType = $this->dataType('slug', 'question_options');
         if (!$dataType->exists) {
             $dataType->fill([
-                'name'                  => 'questions',
-                'display_name_singular' => 'Question',
-                'display_name_plural'   => 'Questions',
-                'icon'                  => 'voyager-question',
-                'model_name'            => 'App\\Models\\Question',
+                'name'                  => 'question_options',
+                'display_name_singular' => 'Question Option',
+                'display_name_plural'   => 'Question Options',
+                'icon'                  => 'voyager-list',
+                'model_name'            => 'App\\Models\\QuestionOption',
                 'policy_name'           => '',
                 'controller'            => '',
                 'generate_permissions'  => 1,
@@ -33,8 +33,8 @@ class QuestionsTableSeeder extends Seeder
         }
 
         //Data Rows
-        $questionDataType = DataType::where('slug', 'questions')->firstOrFail();
-        $dataRow = $this->dataRow($questionDataType, 'id');
+        $questionOpDataType = DataType::where('slug', 'question_options')->firstOrFail();
+        $dataRow = $this->dataRow($questionOpDataType, 'id');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'number',
@@ -49,11 +49,11 @@ class QuestionsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($questionDataType, 'title');
+        $dataRow = $this->dataRow($questionOpDataType, 'question_id');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'text',
-                'display_name' => __('voyager::seeders.data_rows.title'),
+                'type'         => 'select_dropdown',
+                'display_name' => 'Question ID',
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -64,9 +64,32 @@ class QuestionsTableSeeder extends Seeder
             ])->save();
         }
 
+        $dataRow = $this->dataRow($dataType, 'question_option_belongsto_question_relationship');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'relationship',
+                'display_name' => 'Question',
+                'required'     => 1,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => [
+                    'model'       => 'App\\Models\\Question',
+                    'table'       => 'questions',
+                    'type'        => 'belongsTo',
+                    'column'      => 'question_id',
+                    'key'         => 'id',
+                    'label'       => 'title',
+                    'pivot_table' => 'questions',
+                    'pivot'       => 0,
+                ],
+                'order'        => 3,
+            ])->save();
+        }
 
-
-        $dataRow = $this->dataRow($questionDataType, 'description');
+        $dataRow = $this->dataRow($questionOpDataType, 'description');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text_area',
@@ -77,11 +100,11 @@ class QuestionsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 3,
+                'order'        => 4,
             ])->save();
         }
 
-        $dataRow = $this->dataRow($questionDataType, 'created_at');
+        $dataRow = $this->dataRow($questionOpDataType, 'created_at');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'timestamp',
@@ -92,11 +115,11 @@ class QuestionsTableSeeder extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'order'        => 4,
+                'order'        => 5,
             ])->save();
         }
 
-        $dataRow = $this->dataRow($questionDataType, 'updated_at');
+        $dataRow = $this->dataRow($questionOpDataType, 'updated_at');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'timestamp',
@@ -107,7 +130,7 @@ class QuestionsTableSeeder extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'order'        => 5,
+                'order'        => 6,
             ])->save();
         }
 
@@ -115,14 +138,14 @@ class QuestionsTableSeeder extends Seeder
         $menu = Menu::where('name', 'admin')->firstOrFail();
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => 'Questions',
+            'title'   => 'Question Options',
             'url'     => '',
-            'route'   => 'voyager.questions.index',
+            'route'   => 'voyager.question_options.index',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-question',
+                'icon_class' => 'voyager-list',
                 'color'      => null,
                 'parent_id'  => null,
                 'order'      => 4,
@@ -130,7 +153,7 @@ class QuestionsTableSeeder extends Seeder
         }
 
         //Permissions
-        Permission::generateFor('questions');
+        Permission::generateFor('question_options');
     }
 
     /**
