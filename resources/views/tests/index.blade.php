@@ -53,8 +53,9 @@
                     @foreach ($question->option as $option)
                     <div class="form-check form-check-radio">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="question_<?= $question->id ?>"
-                                <?=($loop->first) ? 'checked' : '' ?>>
+                            <input class="form-check-input" type="radio" name="<?= 'question_' . $question->id ?>"
+                                value=<?=$option->id ?>
+                            <?= ($loop->first) ? 'checked' : '' ?>>
                             <span class="form-check-sign"></span>
                             <?= $option->description ?>
                         </label>
@@ -65,7 +66,7 @@
             @endforeach
 
             <div class="button-container text-center">
-                <input type="submit" class="btn btn-primary btn-round btn-lg" value="Submit">
+                <input type="submit" class="btn btn-primary btn-round btn-lg" value="Завершити тест">
             </div>
         </form>
     </div>

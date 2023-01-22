@@ -14,4 +14,8 @@ class QuestionDecryptions extends Model
         'answers',
         'result_uri',
     ];
+
+    protected $casts = [
+        'answers' => 'object',
+    ];
 }

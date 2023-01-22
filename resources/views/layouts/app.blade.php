@@ -42,7 +42,8 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
         <div class="container">
-            <div class="dropdown button-dropdown">
+            {{-- TODO: uncomment if need --}}
+            {{-- <div class="dropdown button-dropdown">
                 <a href="#" class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown">
                     <span class="button-bar"></span>
                     <span class="button-bar"></span>
@@ -58,11 +59,10 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">One more separated link</a>
                 </div>
-            </div>
+            </div> --}}
             <div class="navbar-translate">
-                <a class="navbar-brand" href="/" rel="tooltip"
-                    title="Home" data-placement="bottom">
-                    Home
+                <a class="navbar-brand" href="/" rel="tooltip" title="Додому" data-placement="bottom">
+                    Додому
                 </a>
                 <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navigation" aria-controls="navigation-index" aria-expanded="false"
@@ -76,11 +76,10 @@
                 data-nav-image="/img/blurred-image-1.jpg">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Back to Home</a>
+                        <a class="nav-link" href="/">Повернутись Додому</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/creativetimofficial/now-ui-kit/issues">Have an
-                            issue?</a>
+                        <a class="nav-link" href="/">Є питання?</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" rel="tooltip" title="Like me on Facebook" data-placement="bottom"
@@ -110,12 +109,12 @@
                     <ul>
                         <li>
                             <a href="/">
-                                Home
+                                Додому
                             </a>
                         </li>
                         <li>
                             <a href="/tests">
-                                Start test
+                                Почати тест
                             </a>
                         </li>
                     </ul>
@@ -125,14 +124,12 @@
                     <script>
                         document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
                     </script>
-                    &nbsp;Yanina Perevyshko
+                    &nbsp;Яніна Перевишко
                 </div>
             </div>
         </footer>
     </div>
 
-    <!--  Google Maps Plugin    -->
-    {{-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> --}}
 </body>
 
 </html>

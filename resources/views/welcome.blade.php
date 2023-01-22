@@ -6,7 +6,7 @@
     </div>
     <div class="content-center">
         <div class="container">
-            <h1 class="title">This is our great tests</h1>
+            <h1 class="title">Пройдіть наш тест і взнайте ваш тип</h1>
             <div class="text-center">
                 <a href="https://www.facebook.com/yana.orlova.549" class="btn btn-primary btn-icon btn-round" target="_blank">
                     <i class="fab fa-facebook-square"></i>
@@ -21,14 +21,13 @@
 
 <div class="section text-center">
     <a href="/tests" class="btn btn-primary btn-lg btn-round" type="button">
-        <i class="now-ui-icons ui-2_favourite-28"></i> Start test
+        <i class="now-ui-icons ui-2_favourite-28"></i> Почати тест
     </a>
 </div>
 
 <div class="section section-contact-us text-center">
     <div class="container">
-        <h2 class="title">Contact with me?</h2>
-        <p class="description">Your are very important to me.</p>
+        <h2 class="title">Контакт</h2>
         <div class="row">
             <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
                 <div class="input-group input-lg">
@@ -37,7 +36,7 @@
                             <i class="now-ui-icons users_circle-08"></i>
                         </span>
                     </div>
-                    <input type="text" class="form-control" placeholder="First Name...">
+                    <input type="text" class="form-control" placeholder="Ім'я...">
                 </div>
                 <div class="input-group input-lg">
                     <div class="input-group-prepend">
@@ -49,10 +48,10 @@
                 </div>
                 <div class="textarea-container">
                     <textarea class="form-control" name="name" rows="4" cols="80"
-                        placeholder="Type a message..."></textarea>
+                        placeholder="Напишіть повідомлення..."></textarea>
                 </div>
                 <div class="send-button">
-                    <a href="#pablo" class="btn btn-primary btn-round btn-block btn-lg">Send Message</a>
+                    <a href="#pablo" class="btn btn-primary btn-round btn-block btn-lg">Відправити повідомлення</a>
                 </div>
             </div>
         </div>
