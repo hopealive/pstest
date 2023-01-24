@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('question_decryptions', function (Blueprint $table) {
+        Schema::create('psycho_types', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('psycho_type_id')->index();
-            $table->json('answers');
-            $table->string('result_uri');
+            $table->string('name');
+            $table->string('post_slug');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('question_decryptions');
+        Schema::dropIfExists('psycho_types');
     }
 };

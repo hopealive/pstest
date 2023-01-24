@@ -20,6 +20,10 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+    Route::group(['middleware' => 'admin.user'], function () {
+        Route::get('/question_decryption', [App\Http\Controllers\Admin\QuestionDecryptionController::class, 'index'])->name('question_decryption.index');
+        Route::post('/question_decryption', [App\Http\Controllers\Admin\QuestionDecryptionController::class, 'update'])->name('question_decryption.update');
+    });
 });
 
 Auth::routes();

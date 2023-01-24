@@ -315,7 +315,7 @@ class PostsTableSeeder extends Seeder
                 'icon_class' => 'voyager-news',
                 'color'      => null,
                 'parent_id'  => null,
-                'order'      => 6,
+                'order'      => 7,
             ])->save();
         }
 

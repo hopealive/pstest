@@ -24,6 +24,7 @@ class VoyagerDatabaseSeeder extends Seeder
             SettingsTableSeeder::class,
             QuestionsTableSeeder::class,
             QuestionOptionsTableSeeder::class,
+            PsychoTypesTableSeeder::class,
         ]);
     }
 }

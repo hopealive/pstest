@@ -148,7 +148,7 @@ class QuestionOptionsTableSeeder extends Seeder
                 'icon_class' => 'voyager-list',
                 'color'      => null,
                 'parent_id'  => null,
-                'order'      => 4,
+                'order'      => 6,
             ])->save();
         }
 

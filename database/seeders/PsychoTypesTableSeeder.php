@@ -9,7 +9,7 @@ use TCG\Voyager\Models\Menu;
 use TCG\Voyager\Models\MenuItem;
 use TCG\Voyager\Models\Permission;
 
-class QuestionsTableSeeder extends Seeder
+class PsychoTypesTableSeeder extends Seeder
 {
     /**
      * Auto generated seed file.
@@ -17,14 +17,14 @@ class QuestionsTableSeeder extends Seeder
     public function run()
     {
         //Data Type
-        $dataType = $this->dataType('slug', 'questions');
+        $dataType = $this->dataType('slug', 'psycho_types');
         if (!$dataType->exists) {
             $dataType->fill([
-                'name'                  => 'questions',
-                'display_name_singular' => 'Question',
-                'display_name_plural'   => 'Questions',
-                'icon'                  => 'voyager-question',
-                'model_name'            => 'App\\Models\\Question',
+                'name'                  => 'psycho_types',
+                'display_name_singular' => 'Psycho Type',
+                'display_name_plural'   => 'Psycho Types',
+                'icon'                  => 'voyager-list',
+                'model_name'            => 'App\\Models\\PsychoTypes',
                 'policy_name'           => '',
                 'controller'            => '',
                 'generate_permissions'  => 1,
@@ -33,8 +33,8 @@ class QuestionsTableSeeder extends Seeder
         }
 
         //Data Rows
-        $questionDataType = DataType::where('slug', 'questions')->firstOrFail();
-        $dataRow = $this->dataRow($questionDataType, 'id');
+        $psychoTypeDataType = DataType::where('slug', 'psycho_types')->firstOrFail();
+        $dataRow = $this->dataRow($psychoTypeDataType, 'id');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'number',
@@ -49,11 +49,11 @@ class QuestionsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($questionDataType, 'title');
+        $dataRow = $this->dataRow($psychoTypeDataType, 'name');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
-                'display_name' => __('voyager::seeders.data_rows.title'),
+                'display_name' => 'Name',
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -64,13 +64,11 @@ class QuestionsTableSeeder extends Seeder
             ])->save();
         }
 
-
-
-        $dataRow = $this->dataRow($questionDataType, 'description');
+        $dataRow = $this->dataRow($psychoTypeDataType, 'post_slug');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'text_area',
-                'display_name' => 'Description',
+                'type'         => 'text',
+                'display_name' => 'Post Slug',
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -81,7 +79,7 @@ class QuestionsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($questionDataType, 'created_at');
+        $dataRow = $this->dataRow($psychoTypeDataType, 'created_at');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'timestamp',
@@ -96,7 +94,7 @@ class QuestionsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($questionDataType, 'updated_at');
+        $dataRow = $this->dataRow($psychoTypeDataType, 'updated_at');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'timestamp',
@@ -115,22 +113,22 @@ class QuestionsTableSeeder extends Seeder
         $menu = Menu::where('name', 'admin')->firstOrFail();
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => 'Questions',
+            'title'   => 'Psycho Types',
             'url'     => '',
-            'route'   => 'voyager.questions.index',
+            'route'   => 'voyager.psycho_types.index',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-question',
+                'icon_class' => 'voyager-list',
                 'color'      => null,
                 'parent_id'  => null,
-                'order'      => 5,
+                'order'      => 12,
             ])->save();
         }
 
         //Permissions
-        Permission::generateFor('questions');
+        Permission::generateFor('psycho_types');
     }
 
     /**

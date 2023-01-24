@@ -130,6 +130,7 @@
         </footer>
     </div>
 
+    @yield('page-script')
 </body>
 
 </html>

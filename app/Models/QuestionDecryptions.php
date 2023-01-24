@@ -10,12 +10,12 @@ class QuestionDecryptions extends Model
     use HasFactory;
 
     protected $fillable = [
-        'type_id',
+        'psycho_type_id',
         'answers',
         'result_uri',
     ];
 
     protected $casts = [
-        'answers' => 'object',
+        'answers' => 'array',
     ];
 }
