@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedInteger('psycho_type_id')->index();
             $table->json('answers');
-            $table->string('result_uri');
             $table->timestamps();
         });
     }

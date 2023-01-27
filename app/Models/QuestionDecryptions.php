@@ -12,7 +12,6 @@ class QuestionDecryptions extends Model
     protected $fillable = [
         'psycho_type_id',
         'answers',
-        'result_uri',
     ];
 
     protected $casts = [
