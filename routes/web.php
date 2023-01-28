@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('post/{slug}', [App\Http\Controllers\PostsController::class, 'show'])->name('post');
+Route::resource('tests', App\Http\Controllers\TestsController::class)->only(['index', 'store']);
 
 
 Route::group(['prefix' => 'admin'], function () {
@@ -28,6 +29,3 @@ Route::group(['prefix' => 'admin'], function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('post/{slug}', [App\Http\Controllers\PostsController::class, 'show'])->name('post');
-Route::resource('tests', App\Http\Controllers\TestsController::class)->only(['index', 'store']);

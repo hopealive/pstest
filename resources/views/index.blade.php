@@ -8,7 +8,8 @@
         <div class="container">
             <h1 class="title">Пройдіть наш тест і взнайте ваш тип</h1>
             <div class="text-center">
-                <a href="https://www.facebook.com/yana.orlova.549" class="btn btn-primary btn-icon btn-round" target="_blank">
+                <a href="https://www.facebook.com/yana.orlova.549" class="btn btn-primary btn-icon btn-round"
+                    target="_blank">
                     <i class="fab fa-facebook-square"></i>
                 </a>
                 <a href="https://www.instagram.com/ninn978" class="btn btn-primary btn-icon btn-round" target="_blank">
@@ -16,6 +17,25 @@
                 </a>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="section text-center">
+    <a href="/tests" class="btn btn-primary btn-lg btn-round" type="button">
+        <i class="now-ui-icons ui-2_favourite-28"></i> Почати тест
+    </a>
+</div>
+
+<div class="section text-center">
+    <div class="row">
+        @foreach ($psychoTypes as $psychoType)
+        <div class="col-lg-4 text-center col-md-4">
+            <div class="title">{{ $psychoType->post->title }}</div>
+            <img src="{{ Voyager::image( $psychoType->post->image ) }}" alt="{{ $psychoType->post->title }}"
+                class="rounded-circle img-thumbnail col-md-2">
+            <p>{!! $psychoType->post->body !!}</p>
+        </div>
+        @endforeach
     </div>
 </div>
 
