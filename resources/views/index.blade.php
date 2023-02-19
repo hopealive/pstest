@@ -33,7 +33,14 @@
             <div class="title">{{ $psychoType->post->title }}</div>
             <img src="{{ Voyager::image( $psychoType->post->image ) }}" alt="{{ $psychoType->post->title }}"
                 class="rounded-circle img-thumbnail col-md-2">
-            <p>{!! $psychoType->post->body !!}</p>
+
+            <?php
+            $content = $psychoType->post->body;
+            $content = html_entity_decode(strip_tags($content));
+            $pos = strpos($content, '.');
+            $content = $pos === false ? $content : substr($content, 0, $pos + 1);
+            ?>
+            <p>{!! $content !!}</p>
         </div>
         @endforeach
     </div>
