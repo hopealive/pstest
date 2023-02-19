@@ -20,8 +20,7 @@
             <div class="panel-body">
                 <div class="form-group col-md-12">
                     @foreach ($psychoTypes as $psychoType)
-                    <?php $answers = $questionDecryptions->where('psycho_type_id', $psychoType->id)->pluck('answers')->first();  ?>
-
+                    <?php $answers = $questionDecryptions->where('psycho_type_id', $psychoType->id)->pluck('answers')->first() ?? [];  ?>
                     <h2>{{ $psychoType->name }}</h2>
                     @foreach ($questions as $question)
                     <div class="form-group">

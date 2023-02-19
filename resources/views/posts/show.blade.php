@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', $post->seo_title ?? $post->title)
+
 @section('content')
 <div class="page-header clear-filter page-header-small" filter-color="orange">
     <div class="page-header-image" data-parallax="true" style="background-image:url('/img/bg5.jpg');">

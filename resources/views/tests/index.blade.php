@@ -44,7 +44,7 @@
                     <div class="section text-center <?= $loop->first ? '' : 'hidden' ?> " data-id="<?= $question->id ?>">
                         <div class="form-row">
                             <h3 class="title">
-                                <?= $question->title ?>
+                                {{ $loop->iteration }}.&nbsp;<?= $question->title ?>
                             </h3>
                             <h5 class="description">
                                 <?= $question->description ?>
