@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('post/{slug}', [App\Http\Controllers\PostsController::class, 'show'])->name('post');
+Route::get('page/{slug}', [App\Http\Controllers\PagesController::class, 'show'])->name('page');
 Route::resource('tests', App\Http\Controllers\TestsController::class)->only(['index', 'store']);
 
 
