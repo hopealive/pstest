@@ -6,6 +6,7 @@ use App\Http\Requests\TestFinishRequest;
 use App\Models\PsychoTypes;
 use App\Models\Question;
 use App\Models\QuestionDecryptions;
+use App\Models\UserAnswer;
 
 class TestsController extends Controller
 {
@@ -24,9 +25,11 @@ class TestsController extends Controller
         $questionDecryptions = QuestionDecryptions::select('psycho_type_id', 'answers')->get();
 
         $decrypted = [];
+        $userAnswers = [];
         $questions = Question::select('id')->get();
         foreach ($questions as $question) {
             $userAnswer = $request->get('question_' . $question->id);
+            $userAnswers[] = $userAnswer;
             foreach ($questionDecryptions as $questionDecryption) {
                 if (empty($questionDecryption->answers) || !in_array($userAnswer, $questionDecryption->answers)) {
                     continue;
@@ -52,6 +55,14 @@ class TestsController extends Controller
         if (!$psychoType) {
             return redirect()->back()->withErrors(['message' => 'Тип ' . $typeId . ' не знайдено. Спробуйте ще раз']);
         }
+        UserAnswer::create([
+            'psycho_type_id' => $typeId,
+            'answers' => $userAnswers,
+            'user_info' => [
+                'user_agent' => $request->userAgent(),
+                'client_id' => $request->getClientIp(),
+            ]
+        ]);
         return redirect()->route('post', ['slug' => $psychoType->post_slug]);
     }
 }
