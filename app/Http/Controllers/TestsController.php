@@ -60,7 +60,7 @@ class TestsController extends Controller
             'answers' => $userAnswers,
             'user_info' => [
                 'user_agent' => $request->userAgent(),
-                'client_id' => $request->getClientIp(),
+                'client_ip' => $request->getClientIp(),
             ]
         ]);
         return redirect()->route('post', ['slug' => $psychoType->post_slug]);

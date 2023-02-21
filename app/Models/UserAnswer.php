@@ -24,4 +24,9 @@ class UserAnswer extends Model
         'answers' => 'array',
         'user_info' => 'object',
     ];
+
+    public function psychoType()
+    {
+        return $this->hasOne(PsychoTypes::class, 'id', 'psycho_type_id');
+    }
 }
